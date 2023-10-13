@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/top'
+  get 'users/profile'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
     }
-  resource :users
+  resources :users
 end

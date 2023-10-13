@@ -1,0 +1,27 @@
+<h2>プロフィールページ</h2>
+
+<li>
+  <%= link_to "アカウント", user_path(id: current_user.id) %>
+</li>
+<li>
+  <%= link_to "プロフィール", users_profile_path %>
+</li>
+
+<p><%= link_to"編集", edit_user_path(@user) %></p>
+
+<table>
+  <tr>
+    <th>アイコン画像</th>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <th>名前</th>
+    <td><%= @user.name %></td>
+  </tr>
+
+  <tr>
+    <th>自己紹介</th>
+    <td><%= @user.profile %></td>
+  </tr>
+</table>
