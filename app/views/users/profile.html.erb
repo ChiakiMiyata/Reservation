@@ -12,7 +12,13 @@
 <table>
   <tr>
     <th>アイコン画像</th>
-    <td></td>
+    <td>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar.variant(resize:'100').processed %>
+        <% else %>
+          <%= image_tag 'default.png' %>
+        <% end %>
+    </td>
   </tr>
   
   <tr>
