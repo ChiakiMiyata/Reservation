@@ -20,7 +20,8 @@
           <% else %>
             <%= image_tag 'default.png' %>
           <% end %>
-          </p>
+        </p>
+        <p><%= current_user.name %></p>
         <p><%= link_to "アカウント設定", user_path(id: current_user.id) %></p>
         <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
       <% else %>
