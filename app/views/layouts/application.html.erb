@@ -8,22 +8,33 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
     <header>
       <h1><%= link_to "宿泊予約アプリ", users_path %></h1>
       <% if user_signed_in? %>
-        <p>
+        <div class="dropdown"> 
+          <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar.variant(resize:'50').processed %>
           <% else %>
             <%= image_tag 'default.png' %>
           <% end %>
-        </p>
-        <p><%= current_user.name %></p>
-        <p><%= link_to "アカウント設定", user_path(id: current_user.id) %></p>
-        <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+          <%= current_user.name %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
+            <button class="dropdown-item" type="button"><%= link_to "アカウント設定", user_path(id: current_user.id) %></a>
+            <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+            <button class="dropdown-item" type="button">メニュー3</a>
+          </div>
+        </div>
       <% else %>
         <p><%= link_to "新規登録", new_user_registration_path %></p>
         <p><%= link_to "ログイン", new_user_session_path %></p>
