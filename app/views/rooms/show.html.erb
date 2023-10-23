@@ -2,11 +2,11 @@
 <table>
   <tr>
     <th>
-        <% if @room.room_image.attached? %>
-          <%= image_tag @room.room_image.variant(resize:'200').processed %>
-        <% else %>
-          <%= image_tag 'room.png' %>
-        <% end %>
+      <% if @room.room_image.attached? %>
+        <%= image_tag @room.room_image.variant(resize:'200').processed %>
+      <% else %>
+        <%= image_tag 'room.png' %>
+      <% end %>
     </th>
   </tr>
   
@@ -25,5 +25,9 @@
   <tr>
     <th><%= @room.fee %></th>
   </tr>
+
+  <% if @room.user.id == current_user.id %>
+    <%= link_to "編集", edit_room_path(@room) %>
+  <% end %>
 
 </table>
