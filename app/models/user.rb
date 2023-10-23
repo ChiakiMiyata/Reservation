@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
+  has_many :romms, dependent: :destroy
+
 end
