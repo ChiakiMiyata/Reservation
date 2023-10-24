@@ -1,0 +1,25 @@
+<h2>プロフィール</h2>
+
+<%= form_with model: @user do |f| %>
+  <div class="field">
+    <%= f.label :avatar ,"アイコン画像" %>
+    <%= f.file_field :avatar, accept: "image/*" %>
+</div>
+  </div>
+
+  <div class="field">
+    <%= f.label :name ,"名前" %></th>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile ,"プロフィール" %></th>
+    <%= f.text_area :profile %>
+  </div>
+
+  <ul>
+    <li><%= f.submit "編集を完了する" %></li>
+    <li><%= link_to "戻る", users_profile_path %></li>
+  </ul>
+
+<% end %>

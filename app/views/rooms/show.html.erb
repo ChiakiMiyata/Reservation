@@ -1,0 +1,35 @@
+
+<table>
+  <tr>
+    <th>
+      <% if @room.room_image.attached? %>
+        <%= image_tag @room.room_image.variant(resize:'200').processed %>
+      <% else %>
+        <%= image_tag 'room.png' %>
+      <% end %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th><%= @room.room_name %></th>
+  </tr>
+
+  <tr>
+    <th><%= @room.address %></th>
+  </tr>
+
+  <tr>
+    <th><%= simple_format @room.introduction %></th>
+  </tr>
+
+  <tr>
+    <th><%= @room.fee %></th>
+  </tr>
+
+  <% if @room.user.id == current_user.id %>
+    <%= link_to "編集", edit_room_path(@room) %>
+  <% end %>
+
+</table>
+
+<%= link_to "戻る", :back %>
