@@ -31,6 +31,11 @@ class RoomsController < ApplicationController
     redirect_to room_path(@room)
   end
 
+  def search
+    @results = Room.search(params[:keyword]).count
+    @rooms = Room.search(params[:keyword])
+  end
+
   private 
   def room_params
     params.require(:room).permit(:room_name, :introduction, :fee, :address, :room_image)
