@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :reservations do
     member do
       post 'confirm' => 'reservations#confirm'
+      post 'back' => 'reservations#back'
     end
   end
 end

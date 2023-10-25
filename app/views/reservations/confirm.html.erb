@@ -32,4 +32,14 @@
     <%= f.hidden_field :room_id %>
 		<%= f.submit '予約を確定' ,class: "btn confirm-submit"%>
 	<% end %>
+
+  <%= form_for @reservation, url: back_reservation_path do |f| %>
+		<%= f.hidden_field :check_in %>
+		<%= f.hidden_field :check_out %>
+		<%= f.hidden_field :people %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :room_id %>
+		<%= f.submit 'キャンセル' ,class: "btn confirm-cancel"%>
+	<% end %>
+
 </div>
