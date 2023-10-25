@@ -4,3 +4,21 @@
   <%= f.text_field :keyword, placeholder: "エリア名を入力" %>
   <%= f.submit "検索" %>
 <% end %>
+
+<div class ="area-container">
+  <h3>おすすめのエリア</h3>
+  <div class="area">
+    <div class="tokyo-area">
+      <%= link_to "・東京", area_rooms_path("東京") %>
+    </div>
+    <div class="osaka-area btn-prime">
+      <%= link_to "・大阪", area_rooms_path("大阪")%>
+    </div>
+    <div class="kyoto-area ">
+      <%= link_to "・京都", area_rooms_path("京都")%>
+    </div>
+    <div class="sapporo">
+      <%= link_to "・札幌", area_rooms_path("札幌")%>
+    </div>
+  </div>
+</div>

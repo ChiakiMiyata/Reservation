@@ -1,0 +1,22 @@
+<% @rooms.each do |room| %>
+<h3><%= room.address %>のホテル</h3>
+
+<table>
+  <tr>
+    <th>
+      <% if room.room_image.attached? %>
+        <%= image_tag room.room_image.variant(resize:'150').processed %>
+      <% else %>
+        <%= image_tag 'room.png' %>
+      <% end %>
+    </th>
+    <th><%= room.room_name %></th>
+    <th><%= room.address %></th>
+    <th><%= room.introduction %></th>
+    <th><%= room.fee %></th>
+    <th><%= link_to "詳細", room_path(room)  %></th>
+  </tr>
+</table>
+
+<% end %>
+Ï

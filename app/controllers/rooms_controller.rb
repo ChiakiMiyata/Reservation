@@ -38,6 +38,10 @@ class RoomsController < ApplicationController
     @rooms = Room.search(params[:keyword])
   end
 
+  def area
+    @rooms = Room.where(address: (params[:format]))
+  end
+
   private 
   def room_params
     params.require(:room).permit(:room_name, :introduction, :fee, :address, :room_image)
