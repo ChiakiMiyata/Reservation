@@ -34,12 +34,17 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @results = Room.search(params[:keyword]).count
-    @rooms = Room.search(params[:keyword])
+    @results = Room.where('rooms.address LIKE(?)',"%#{params[:area]}%").count
+    @rooms = Room.where('rooms.address LIKE(?)',"%#{params[:area]}%")
+    if params[:keyword].present?
+      @results = Room.where([ 'rooms.address LIKE ? OR rooms.introduction LIKE ? OR rooms.room_name LIKE ? ', "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%" ]).count
+      @rooms = Room.where([ 'rooms.address LIKE ? OR rooms.introduction LIKE ? OR rooms.room_name LIKE ? ', "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%" ])
+    end
   end
 
   def area
     @rooms = Room.where(address: (params[:format]))
+    @results = Room.where(address: (params[:format])).count
   end
 
   private 
