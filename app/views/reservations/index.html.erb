@@ -11,7 +11,6 @@
         <th>合計金額</th>
         <th>チェックイン</th>
         <th>チェックアウト</th>
-        <th>人数</th>
         <th>作成日</th>
       </tr>
     </thead>
@@ -35,7 +34,6 @@
         <td><%= cost %></td>
         <td><%= reservation.check_in %></td>
         <td><%= reservation.check_out %></td>
-        <td><%= reservation.people %></td>
         <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
       </tr>
     <% end %>
