@@ -10,5 +10,9 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :reservations
+  resources :reservations do
+    member do
+      post 'confirm' => 'reservations#confirm'
+    end
+  end
 end

@@ -1,0 +1,35 @@
+
+<div class="FormWrapper container">
+  <h2 class="confirm-title">予約確認</h2>
+  <dl>
+		<div class="confirm-value-group">
+			<dt class="confirm-label">チェックイン</dt>
+			<dd class="confirm-value"><%= @reservation.check_in %></dd>
+		</div>
+		<div class="confirm-value-group">
+			<dt class="confirm-label">チェックアウト</dt>
+			<dd class="confirm-value"><%= @reservation.check_out %></dd>
+		</div>
+		<div class="confirm-value-group">
+			<dt class="confirm-label">人数</dt>
+			<dd class="confirm-value"><%= @reservation.people %></dd>
+		</div>
+		<div class="confirm-value-group">
+      <dt class="confirm-label">日数</dt>
+      <dd class="confirm-value"><%= @days %></dd>
+		</div>
+		<div class="confirm-value-group">
+      <dt class="confirm-label">価格</dt>
+      <dd class="confirm-value confirm-price"><%= @cost %>円</dd>
+		</div>
+	</dl>
+
+	<%= form_for @reservation, method: :post,url: reservations_path do |f|%>
+    <%= f.hidden_field :check_in %>
+		<%= f.hidden_field :check_out %>
+		<%= f.hidden_field :people %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :room_id %>
+		<%= f.submit '予約を確定' ,class: "btn confirm-submit"%>
+	<% end %>
+</div>
