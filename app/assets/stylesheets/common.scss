@@ -1,7 +1,23 @@
+// ヘッダー
 header {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 30px;
-  background-color: rgb(1, 1, 52);
+  background-color: rgb(99, 149, 107);
+}
+
+.navbar-title {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-title:link, .navbar-title:visited, .navbar-title:hover, .navbar-title:active {
+  color: white;
+  text-decoration: none;
+}
+
+#btnOpenMenu {
+  background-color: transparent;
+  border: none;
 }
 

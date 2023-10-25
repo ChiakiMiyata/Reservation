@@ -18,28 +18,33 @@
 
   <body>
     <header>
-      <h1><%= link_to "宿泊予約アプリ", users_path %></h1>
-      <% if user_signed_in? %>
-        <div class="dropdown"> 
-          <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.avatar.attached? %>
-            <%= image_tag current_user.avatar.variant(resize:'50').processed %>
+      <nav class="navbar">
+        <h1><%= link_to "宿泊予約アプリ", users_path, class: "navbar-title" %></h1>
+        <div class="header-container d-flex justify-content-end">
+          <% if user_signed_in? %>
+            <div class="dropdown"> 
+              <button id="btnOpenMenu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar.variant(resize:'50').processed %>
+              <% else %>
+                <%= image_tag 'default.png', size: '50' %>
+              <% end %>
+              <%= current_user.name %>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
+                <button class="dropdown-item" type="button"><%= link_to "施設の新規登録", new_room_path %>
+                <button class="dropdown-item" type="button"><%= link_to "アカウント設定", user_path(id: current_user.id) %>
+                <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <button class="dropdown-item" type="button"><%= link_to "登録済み一覧", rooms_path %>
+                <button class="dropdown-item" type="button"><%= link_to "予約済み一覧", reservations_path %>
+              </div>
+            </div>
           <% else %>
-            <%= image_tag 'default.png' %>
+            <p><%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary mr-3" %></p>
+            <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary" %></p>
           <% end %>
-          <%= current_user.name %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnOpenMenu">
-            <button class="dropdown-item" type="button"><%= link_to "アカウント設定", user_path(id: current_user.id) %></a>
-            <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-            <button class="dropdown-item" type="button"><%= link_to "登録済み一覧", rooms_path %></a>
-            <button class="dropdown-item" type="button"><%= link_to "施設の新規登録", new_room_path %></a>
-          </div>
         </div>
-      <% else %>
-        <p><%= link_to "新規登録", new_user_registration_path %></p>
-        <p><%= link_to "ログイン", new_user_session_path %></p>
-      <% end %>
+      </nav>
     </header>
     <%= yield %>
   </body>

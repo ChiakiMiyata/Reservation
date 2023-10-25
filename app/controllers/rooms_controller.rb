@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   def show
     @reservation = Reservation.new
     @room = Room.find(params[:id])
-    @user = User.find(current_user.id)
+   #@user = User.find(current_user.id)
   end
 
   def new
@@ -23,15 +23,15 @@ class RoomsController < ApplicationController
     end
   end
 
-  def edit
-    @room = Room.find(params[:id])
-  end
+# def edit
+#   @room = Room.find(params[:id])
+# end
 
-  def update
-    @room = Room.find(params[:id])
-    @room.update(room_params)
-    redirect_to room_path(@room)
-  end
+# def update
+#   @room = Room.find(params[:id])
+#   @room.update(room_params)
+#   redirect_to room_path(@room)
+# end
 
   def search
     @results = Room.where('rooms.address LIKE(?)',"%#{params[:area]}%").count
