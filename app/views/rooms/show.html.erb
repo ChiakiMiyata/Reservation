@@ -26,7 +26,7 @@
             </div>
             <div class="mx-sm-2">
               <%= f.label :people,"人数",class: "form-label"%>
-              <%= f.number_field :people ,min: 1, class:"form-control"%>
+              <%= f.number_field :people , class:"form-control"%>
             </div>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :room_id, value: @room.id%>
