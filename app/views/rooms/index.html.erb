@@ -27,7 +27,7 @@
               <%= room.room_name %>
             <% end %>
           </td>
-          <td><%= room.introduction %></td>
+          <td><%= simple_format room.introduction %></td>
           <td><%= room.fee %></td>
           <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
         </tr>

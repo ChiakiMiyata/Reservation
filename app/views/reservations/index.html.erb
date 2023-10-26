@@ -1,8 +1,7 @@
-<div class = "container w-auto">
-  <div class="page-title">
-    <h4>予約済み一覧</h4>
-  </div>
-  <table class="table table-bordered">
+<div class="reservations_index_container">
+  <h2>予約済み一覧</h2>
+
+  <table width="100%" class="reservations_table">
     <thead>
       <tr>
         <th>画像</th>
@@ -16,28 +15,27 @@
     </thead>
 
     <tbody>
-    <% @reservations.each do |reservation| %>
-    <% room = Room.find(reservation.room_id)%>
-    <% day = reservation.check_out - reservation.check_in %>
-    <% days = day.to_i %>
-    <% cost = room.fee * days * reservation.people %>
-      <tr>
-        <td>
-          <% if room.room_image.attached? %>
-            <%= image_tag room.room_image.variant(resize:'150').processed %>
-          <% else %>
-            <%= image_tag 'room.png' %>
-          <% end %>
-        </td>
-        <td><%= room.room_name %></td>
-        <td><%= room.introduction %></td>
-        <td><%= cost %></td>
-        <td><%= reservation.check_in %></td>
-        <td><%= reservation.check_out %></td>
-        <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <% @reservations.each do |reservation| %>
+      <% room = Room.find(reservation.room_id)%>
+      <% day = reservation.check_out - reservation.check_in %>
+      <% days = day.to_i %>
+      <% cost = room.fee * days * reservation.people %>
+        <tr>
+          <td>
+            <% if room.room_image.attached? %>
+              <%= image_tag room.room_image.variant(resize:'100').processed %>
+            <% else %>
+              <%= image_tag 'room.png', :size => '100x70' %>
+            <% end %>
+          </td>
+          <td><%= room.room_name %></td>
+          <td><%= simple_format room.introduction %></td>
+          <td><%= cost %></td>
+          <td><%= reservation.check_in %></td>
+          <td><%= reservation.check_out %></td>
+          <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

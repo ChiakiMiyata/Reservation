@@ -1,5 +1,4 @@
-
-<div class="FormWrapper container">
+<div class="confirm_container">
   <h2 class="confirm-title">予約確認</h2>
   <dl>
 		<div class="confirm-value-group">
@@ -30,7 +29,7 @@
 		<%= f.hidden_field :people %>
     <%= f.hidden_field :user_id %>
     <%= f.hidden_field :room_id %>
-		<%= f.submit '予約を確定' ,class: "btn confirm-submit"%>
+		<%= f.submit '予約を確定' ,class: "btn btn-primary confirm-submit"%>
 	<% end %>
 
   <%= form_for @reservation, url: back_reservation_path do |f| %>
