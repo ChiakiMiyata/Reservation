@@ -1,5 +1,5 @@
 .actions {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 .field {
@@ -23,6 +23,18 @@ header {
 #btnOpenMenu {
   background-color: transparent;
   border: none;
+}
+
+//パーシャル
+.search_container {
+  display: flex;
+  flex-direction: column;
+}
+.search_partial {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: beige;
 }
 
 //users/index
@@ -155,4 +167,80 @@ header {
 }
 .profile_edit_container h2 {
   font-weight: bold;
+}
+
+//rooms/index
+.rooms_index_container {
+  margin: 40px;
+}
+.rooms_index_container h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.rooms_table th {
+  border-bottom: 2px solid rgb(111, 111, 111);
+}
+.rooms_table td {
+  border-bottom: 1px solid rgb(218, 217, 217);
+}
+
+//rooms/new
+.rooms_new_container {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.rooms_new_container h2 {
+  font-weight: bold;
+}
+
+//rooms/show
+.back_link {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.room_detail_container {
+  margin-top: 15px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 50px;
+  background-color: rgb(250, 237, 220);
+}
+.room_detail {
+  display: flex;
+  justify-content: center;
+}
+.room_info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 120px;
+}
+.room_name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+//rooms/search,ares
+.result_count {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
+.result_room {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+.result_room_image {
+  margin-left: 20px;
+}
+.result_room_info {
+  padding: 10px;
+}
+.result_room_name {
+  font-size: 30px;
 }
