@@ -63,3 +63,6 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 gem 'pry-rails'
+
+gem 'rails-i18n'
+gem 'devise-i18n-views'

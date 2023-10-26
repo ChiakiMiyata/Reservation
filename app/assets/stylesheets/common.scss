@@ -1,23 +1,158 @@
+.actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.field {
+  margin-top: 15px;
+}
+
 // ヘッダー
 header {
   width: 100%;
   padding: 10px;
-  margin-bottom: 30px;
-  background-color: rgb(99, 149, 107);
+  background-color: rgb(70, 126, 82);
 }
-
 .navbar-title {
   color: white;
   font-weight: bold;
 }
-
 .navbar-title:link, .navbar-title:visited, .navbar-title:hover, .navbar-title:active {
   color: white;
   text-decoration: none;
 }
-
 #btnOpenMenu {
   background-color: transparent;
   border: none;
 }
 
+//users/index
+.top-container{
+  height: 750px;
+  width:100%;
+  background-image: image-url('top.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 220px;
+}
+.search{
+  width:50%;
+  background:hsla(0,0%,100%,.4);
+  margin: auto;
+  padding:30px;
+}
+.top_button{
+  margin-top: 15px;
+  width:100%;
+  height: 45px;
+  background-color: rgb(170, 196, 244);
+}
+.area-container{
+  text-align: center;
+  padding: 20px;
+}
+.area-container h3 {
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 5px solid orange;
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+  margin-bottom: 25px;
+}
+.area {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+//users/show
+.account_container {
+  display: flex;
+  justify-content: flex-start;
+}
+.account_container h2 {
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.account_edit_btn {
+  font-size: 20px;
+  margin-top: 35px;
+  margin-left: 30px;
+}
+.account_info{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.account_info th,td{
+  padding: 5px 20px;
+}
+.profile_btn {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+//users/profile
+.profile_container {
+  display: flex;
+  justify-content: flex-start;
+}
+.profile_container h2 {
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.profile_edit_btn {
+  font-size: 20px;
+  margin-top: 35px;
+  margin-left: 30px;
+}
+.profile_info{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profile_info th,td{
+  padding: 10px 20px;
+}
+.account_btn {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+//registrations/edit
+.account_edit_container {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.account_edit_container h2 {
+  font-weight: bold;
+}
+
+//registration/new
+.sign_up_container {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.sign_up_container h2 {
+  font-weight: bold;
+}
+
+//sessions/new
+.sign_in_container {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.sign_in_container h2 {
+  font-weight: bold;
+}
+
+//users/edit
+.profile_edit_container {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.profile_edit_container h2 {
+  font-weight: bold;
+}
