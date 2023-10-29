@@ -1,0 +1,28 @@
+<div class="profile_container">
+  <h2>プロフィールページ</h2>
+    <%= link_to"編集", edit_user_path(@user), class:"profile_edit_btn" %>
+</div>
+  <table class="profile_info">
+    <tr>
+      <th>アイコン画像</th>
+      <td>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar.variant(resize:'60').processed %>
+        <% else %>
+          <%= image_tag 'default.png', size: '60' %>
+        <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+
+    <tr>
+      <th>自己紹介</th>
+      <td><%= @user.profile %></td>
+    </tr>
+  </table>
+
+  <%= link_to "アカウント", user_path(id: current_user.id), class:"account_btn"  %>

@@ -1,0 +1,18 @@
+<div class="top-container">
+  <div class="search">
+    <%= form_with(url: search_rooms_path, local: true, method: :get) do |f| %>
+      <%= f.text_field :area, placeholder: "エリア名を入力", class: "form-control" %>
+      <%= f.submit "検索", class: "btn top_button" %>
+    <% end %>
+  </div>
+</div>
+
+<div class ="area-container">
+  <h3>おすすめのエリア</h3>
+  <div class="area">
+      <%= link_to "東京", area_rooms_path("東京"), class: "btn btn-warning" %>
+      <%= link_to "大阪", area_rooms_path("大阪"), class: "btn btn-warning mr-2 ml-2" %>
+      <%= link_to "京都", area_rooms_path("京都"), class: "btn btn-warning mr-2 ml-2" %>
+      <%= link_to "札幌", area_rooms_path("札幌"), class: "btn btn-warning " %>
+  </div>
+</div>

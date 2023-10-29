@@ -1,0 +1,17 @@
+<div class="account_container">
+  <h2>アカウントページ</h2>
+    <%= link_to"編集", edit_user_registration_path, class:"account_edit_btn" %>
+</div>
+  <table class="account_info">
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+    
+    <tr>
+      <th>パスワード</th>
+      <td>*********</td>
+    </tr>
+  </table>
+
+  <%= link_to "プロフィール", users_profile_path, class:"profile_btn"  %>

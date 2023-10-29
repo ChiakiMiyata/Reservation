@@ -1,0 +1,31 @@
+<div class="search_container">
+  <div class="search_partial">
+    <%= render "shared/search" %>
+  </div>
+  
+  <div class="result_count">
+    <%= "検索結果： #{@results} 件" %>
+  </div>
+
+  <div class="result_room_container">
+    <div class="result_room">
+      <% @rooms.each do |room| %>
+        <div class="result_room_image">
+          <% if room.room_image.attached? %>
+            <%= image_tag room.room_image.variant(resize:'300x210').processed %>
+          <% else %>
+            <%= image_tag 'room.png', :size => '300x210' %>
+          <% end %>
+        </div>
+        <div class="result_room_info">
+          <div class="result_room_name"><%= room.room_name %></div>
+          <div class="room_address"><%= room.address %></div>
+          <div class="room_introduction"><%= room.introduction %></div>
+          <div class="room_fee"><%= room.fee %></div>
+          <div><%= link_to "詳細", room_path(room)  %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

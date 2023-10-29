@@ -1,0 +1,43 @@
+<div class="back_link"><%= link_to "⇦戻る", :back %></div>
+  <div class="room_detail_container">
+  <div class="room_detail">
+    <div class="room_image">
+      <% if @room.room_image.attached? %>
+        <%= image_tag @room.room_image.variant(resize:'200').processed %>
+      <% else %>
+        <%= image_tag 'room.png' %>
+      <% end %>
+    </div>
+    <div class="room_info">
+      <div class="room_name"><%= @room.room_name %></div>
+      <div class="room_address"><%= @room.address %></div>
+      <div class="room_introduction"><%= simple_format @room.introduction %></div>
+      <div class="room_fee"><%= @room.fee %>円〜</div>
+      <div class="reservation_form">
+        <% if user_signed_in? %>
+          <%= form_with model:@reservation, url: confirm_reservation_path, class:"form-inline" do |f|%>
+            <div class="mx-sm-2">
+              <%= f.label :check_in,"チェックイン" ,class: "form-label"%>
+              <%= f.date_field :check_in, class:"form-control"%>
+            </div>
+            <div>
+              <%= f.label :check_out,"チェックアウト",class: "form-label"%>
+              <%= f.date_field :check_out , class:"form-control"%>
+            </div>
+            <div class="mx-sm-2">
+              <%= f.label :people,"人数",class: "form-label"%>
+              <%= f.number_field :people , class:"form-control"%>
+            </div>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :room_id, value: @room.id%>
+            <%= f.submit "送信", class:"btn btn-primary mt-4"%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%# if @room.user.id == current_user.id %>
+    <%#= link_to "編集", edit_room_path(@room) %>
+  <%# end %>

@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'users#index'
+  get 'users/profile'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+    }
+  resources :users
+  resources :rooms do
+    collection do
+      get 'search'
+      get 'area'
+    end
+  end
+  resources :reservations do
+    member do
+      post 'confirm' => 'reservations#confirm'
+      post 'back' => 'reservations#back'
+    end
+  end
 end
